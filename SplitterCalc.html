@@ -1,0 +1,43 @@
+<script>
+    let continuar = true;
+    let valorInicial = 0;
+    let saldo = 0;
+    let cont = 1;
+
+    valorInicial = parseFloat(prompt("Informe o sinal:"));
+    console.log("Sinal da OLT: " + valorInicial);
+
+    while (continuar) {
+
+        console.log("CTO " + cont)
+
+        const opcoes = [14.60, 11.30, 9.60, 7.90, 6, 4.70, 3.60];
+        const opcaoEscolhida = parseFloat(prompt("Escolha o splitter:\n5/95 - " + opcoes[0] + "\n10/90 - " + opcoes[1] + "\n15/85 - " + opcoes[2] + "\n20/80 - " + opcoes[3] + "\n30/70 - " + opcoes[4] + "\n50/50 - " + opcoes[5]));
+        const perna1 = valorInicial - opcoes[opcaoEscolhida - 1];
+
+        console.log("Perna 1 do splitter: " + perna1.toFixed(2));
+
+        const opcoes2 = [0.40, 0.65, 1, 1.20, 1.90, 2.70, 3.60];
+        const opcaoEscolhida2 = parseFloat(prompt("Escolha o splitter:\n5/95 - " + opcoes2[0] + "\n10/90 - " + opcoes2[1] + "\n15/85 - " + opcoes2[2] + "\n20/80 - " + opcoes2[3] + "\n30/70 - " + opcoes2[4] + "\n50/50 - " + opcoes2[5]));
+        const perna2 = valorInicial - opcoes2[opcaoEscolhida2 - 1];
+        valorInicial = perna2
+
+        console.log("Perna 2 do splitter: " + perna2.toFixed(2));
+
+        const opcoes3 = [10.50, 13.70, 7.3, 4];
+        const opcaoEscolhida3 = parseFloat(prompt("Escolha a capacidade da CTO:\n1x8 - " + opcoes3[0] + "\n1x16 - " + opcoes3[1] + "\n1x4 - " + opcoes3[2] + "\n1x2 - " + opcoes3[3]));
+        const sinalCto = perna1 - opcoes3[opcaoEscolhida3 - 1];
+
+        console.log("Splitter " + opcaoEscolhida)
+        console.log("Sinal da CTO: " + sinalCto.toFixed(2));
+        console.log("Saldo de sinal " + perna2.toFixed(2));
+
+        continuar = confirm("Deseja continuar?");
+
+        cont++;
+    }
+
+    console.log("Programa encerrado.");
+
+
+</script>
